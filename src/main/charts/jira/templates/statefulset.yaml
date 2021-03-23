@@ -77,6 +77,8 @@ spec:
                 configMapKeyRef:
                   key: reserved_code_cache
                   name: {{ include "jira.fullname" . }}-jvm-config
+            - name: ATL_TOMCAT_CONTEXTPATH
+              value: {{ .Values.jira.contextPath }}
             {{- with .Values.jira.additionalEnvironmentVariables }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
