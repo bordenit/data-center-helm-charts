@@ -42,7 +42,7 @@ spec:
             - name: ATL_TOMCAT_SECURE
               value: "true"
               {{ end }}
-            {{ if .Values.confluence.service.contextPath }}
+            {{ if .Values.jira.service.contextPath }}
             - name: ATL_TOMCAT_CONTEXTPATH
               value: {{ .Values.jira.service.contextPath | quote }}
               {{ end }}
