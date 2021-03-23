@@ -40,4 +40,21 @@ class ContextPathTest {
                 product.getHelmReleaseName()).getContainer().get("readinessProbe").get("httpGet").get("path").asText(),
                 "/confluence/status");
     }
+    
+    @ParameterizedTest
+    @EnumSource(value = Product.class, names = "jira")
+    void jira_context_path(Product product) throws Exception {
+        final var resources = helm.captureKubeResourcesFromHelmChart(product, Map.of(
+                "confluence.service.contextPath", "/jira"));
+
+        resources.getStatefulSet(product.getHelmReleaseName())
+                .getContainer()
+                .getEnv()
+                .assertHasValue("ATL_TOMCAT_CONTEXTPATH", "/jira");
+
+
+        assertEquals(resources.getStatefulSet(
+                product.getHelmReleaseName()).getContainer().get("readinessProbe").get("httpGet").get("path").asText(),
+                "/jira/status");
+    }
 }
