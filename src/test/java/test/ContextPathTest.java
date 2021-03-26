@@ -40,5 +40,4 @@ class ContextPathTest {
                 product.getHelmReleaseName()).getContainer().get("readinessProbe").get("httpGet").get("path").asText(),
                 "/" + product.name() + "/status");
     }
-    
 }
