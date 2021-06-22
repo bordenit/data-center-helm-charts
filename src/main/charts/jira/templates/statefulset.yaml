@@ -19,6 +19,7 @@ spec:
       labels:
         {{- include "jira.selectorLabels" . | nindent 8 }}
     spec:
+      schedulerName: {{ include "jira.volumes.schedulerName" . }}
       serviceAccountName: {{ include "jira.serviceAccountName" . }}
       terminationGracePeriodSeconds: 1
       {{ if .Values.jira.securityContext.enabled }}
