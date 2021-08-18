@@ -11,7 +11,7 @@
 # https://atlassian-labs.github.io/data-center-helm-charts/installation/INSTALLATION/#3-configure-database
 # https://atlassian-labs.github.io/data-center-helm-charts/installation/INSTALLATION/#5-configure-persistent-storage
 #
-# To manage external access to the Confluence instance, an ingress resource can also be configured 
+# To manage external access to the Confluence instance, an  resource can also be configured 
 # under the 'ingress' stanza. This requires a pre-provisioned ingress controller to be present. 
 #
 # Additional details on pre-provisioning an ingress controller can be found here:
@@ -594,6 +594,11 @@ synchrony:
   
   # K8s Synchrony Service configuration
   #
+  ingress:
+    host:
+    tlsSecretName: 
+    path: 
+    
   service:
   
     # -- The port on which the Synchrony K8s Service will listen
