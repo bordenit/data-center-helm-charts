@@ -135,8 +135,8 @@ Pod labels
     {{- end }}
 {{- else -}}
 -Dsynchrony.btf.disabled=true
-{{- end }}
-{{- end }}
+{{- end -}}
+{{- end -}}
 
 {{/*
 Create default value for ingress path
